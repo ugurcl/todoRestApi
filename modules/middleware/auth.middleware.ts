@@ -6,12 +6,13 @@ interface AuthRequest extends Request {
 }
 
 
-export const verifyToken = (req:Request, res:Response, next:NextFunction) => {
+export const verifyToken = (req:Request, res:Response, next:NextFunction):void => {
     const authHeader = req.headers.authorization;
-    if(!authHeader || authHeader.startsWith('Bearer ')){
-        return res.status(401).json({
-            error:"Token not found or format is incorrect."
-        })
+    if(!authHeader || !authHeader.startsWith('Bearer ')){
+        res.status(401).json({
+            error:"Token not found or format is incorrect asdas."
+        });
+        return;
     }
 
     const token = authHeader.split(" ")[1];
@@ -21,7 +22,7 @@ export const verifyToken = (req:Request, res:Response, next:NextFunction) => {
         (req as any).user = decode;
         next();
     }catch(e){
-        return res.status(401).json({error:"Invalid or expired token."})
+        res.status(401).json({error:"Invalid or expired token."})
 
     }
 }

@@ -21,3 +21,26 @@ export const loginSchema = z.object({
   username: z.string({ required_error: "Username field cannot be empty." }),
   password: passwordRules,
 });
+
+
+export const createTodoSchema = z.object({
+  title: z
+    .string({ required_error: "Title field is required." })
+    .min(1, { message: "Title cannot be empty." }),
+
+  description: z.string().optional(),
+  dueDate: z
+    .string()
+    .datetime({ message: "Due date must be in a valid date format." })
+    .optional(),
+});
+
+export const updateTodoSchema = z.object({
+  title: z.string().min(1).optional(),
+  description: z.string().optional(),
+  status: z.enum(["pending", "in_progress", "completed"]).optional(),
+  dueDate: z
+    .string()
+    .datetime({ message: "Due date must be in a valid date format." })
+    .optional(),
+});
