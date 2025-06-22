@@ -59,8 +59,8 @@ Features:
 
     ```
     PORT=3000
-    MONGO_URI=mongodb://localhost:27017/todoRestApi
-    JWT_SECRET=supersecretkey
+    CONNECTION_STRING=mongodb://localhost:27017/todoRestApi
+    SECRET_KEY=supersecretkey
 
     ```
 
