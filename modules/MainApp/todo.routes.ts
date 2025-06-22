@@ -4,7 +4,9 @@ import {
     register,
     createTodo,
     getTodos,
-    getTodoById
+    getTodoById,
+    deleteTodo,
+    patchTodoById
 } from "./todo.controller";
 import {verifyToken} from "../middleware/auth.middleware";
 
@@ -21,6 +23,9 @@ router.route('/todos')
 
 router.route('/todo/:id')
     .get(verifyToken,getTodoById)
+    .delete(verifyToken, deleteTodo)
+    .patch(verifyToken, patchTodoById )
+
 
 
 export default router;
