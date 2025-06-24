@@ -45,8 +45,8 @@ Features:
 1.  Clone the repository
 
     ```bash
-    git clone https://github.com/ugurcl/todoRestApi.git
-    cd todoRestApi
+    git clone https://github.com/ugurcl/todoRestAPI.git
+    cd todoRestApı
     ```
 
 2.  Install dependencies
